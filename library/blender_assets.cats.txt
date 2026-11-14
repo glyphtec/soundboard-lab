@@ -1,0 +1,10 @@
+# This is an Asset Catalog Definition file for Blender.
+#
+# Empty lines and lines starting with `#` will be ignored.
+# The first non-ignored line should be the version indicator.
+# Other lines are of the format "UUID:catalog/path/for/assets:simple catalog name"
+
+VERSION 1
+
+5b0a0f4e-6a49-4c58-9e32-1f3c8a7d2b01:Soundboard Lab/Placeholders:Soundboard Lab-Placeholders
+8c2d5e71-3f94-4b6a-a1d0-7e9b4c6f3a02:Soundboard Lab/Carbon Cap Blends:Soundboard Lab-Carbon Cap Blends

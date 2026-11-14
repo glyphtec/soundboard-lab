@@ -53,10 +53,52 @@ bridge_plate.soundboard_lab.iso_e = 10000.0
 bridge_plate.soundboard_lab.iso_nu = 0.3
 bridge_plate.use_fake_user = True
 
+# Carbon-cap blends: isotropic stand-ins for a 4 mm spruce web with a
+# carbon cap, modeled as a plain 4 mm body. Same values as
+# SPRUCE_CARBON_CAP_ISO_* in src/soundboard_lab/materials.py (see the
+# comment there for the derivation and caveats).
+CARBON_CAP_BLENDS = [
+    ("Spruce+Carbon Cap Iso Low (4mm web)", 650.0, 37500.0,
+     "4 mm spruce web + 0.5 mm carbon cap, bending-equivalent isotropic. Carbon E_L = 90 GPa. Estimate, not measured."),
+    ("Spruce+Carbon Cap Iso Mid (4mm web)", 650.0, 41300.0,
+     "4 mm spruce web + 0.5 mm carbon cap, bending-equivalent isotropic. Carbon E_L = 120 GPa. Estimate, not measured."),
+    ("Spruce+Carbon Cap Iso High (4mm web)", 650.0, 44300.0,
+     "4 mm spruce web + 0.5 mm carbon cap, bending-equivalent isotropic. Carbon E_L = 150 GPa. Estimate, not measured."),
+    ("Spruce+Carbon Light Overlay Iso (13 GPa experiment)", 575.0, 13000.0,
+     "Experimental light-overlay stand-in used for diagonal-web waffle runs. Density was not scaled down with E; "
+     "a realistic value is closer to 480 kg/m^3."),
+]
+carbon_blends = []
+for name, density, iso_e, description in CARBON_CAP_BLENDS:
+    m = bpy.data.materials.new(name)
+    m.soundboard_lab.kind = 'ISOTROPIC'
+    m.soundboard_lab.density = density
+    m.soundboard_lab.iso_e = iso_e
+    m.soundboard_lab.iso_nu = 0.3
+    m.use_fake_user = True
+    carbon_blends.append(m)
+
+# Mark everything as an asset (shows up in the Asset Browser for
+# drag-and-drop) and file it under the catalogs defined in
+# blender_assets.cats.txt next to this file.
+CATALOG_PLACEHOLDERS = "5b0a0f4e-6a49-4c58-9e32-1f3c8a7d2b01"
+CATALOG_CARBON_CAP = "8c2d5e71-3f94-4b6a-a1d0-7e9b4c6f3a02"
+for m in (spruce, bridge_plate):
+    m.asset_mark()
+    m.asset_data.catalog_id = CATALOG_PLACEHOLDERS
+    m.asset_data.tags.new("placeholder")
+for m, (_, _, _, description) in zip(carbon_blends, CARBON_CAP_BLENDS):
+    m.asset_mark()
+    m.asset_data.catalog_id = CATALOG_CARBON_CAP
+    m.asset_data.description = description
+    m.asset_data.tags.new("isotropic")
+    m.asset_data.tags.new("carbon cap")
+
 assert len(bpy.data.objects) == 0
 assert {"Spruce (Soundboard Lab Placeholder)", "Generic Isotropic (Bridge Plate Placeholder)"}.issubset(
     {m.name for m in bpy.data.materials}
 )
+assert all(m.asset_data is not None for m in bpy.data.materials if m.use_fake_user)
 
 out_path = str(LIBRARY_DIR / "materials_library.blend")
 bpy.ops.wm.save_as_mainfile(filepath=out_path)
