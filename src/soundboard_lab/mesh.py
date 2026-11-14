@@ -1,6 +1,6 @@
 """gmsh-based mesh generation and CalculiX `.inp` card writing.
 
-Pure Python, no `bpy` imports (see docs/CLAUDE.md, "Engine/UI boundary").
+Pure Python, no `bpy` imports (see docs/SOUNDBOARD-LAB-DOC.md, "Engine/UI boundary").
 Stage 2 (box meshed programmatically via gmsh's own geometry kernel)
 and Stage 3 (an arbitrary, already-triangulated surface -- i.e. the
 Blender-authored-geometry path) both live here, plus orthotropic
@@ -28,7 +28,7 @@ from soundboard_lab.materials import (
 @dataclass(frozen=True)
 class IsotropicMaterial:
     """Isotropic material constants, in whatever unit system the mesh
-    geometry uses (e.g. mm/MPa/t per docs/CLAUDE.md's unit convention).
+    geometry uses (e.g. mm/MPa/t per docs/SOUNDBOARD-LAB-DOC.md's unit convention).
     """
 
     name: str
@@ -181,7 +181,7 @@ def write_frequency_inp(
     differ only in solver formulation, so the variant meshio happens
     to pick when reversing that lookup is incidental, not a
     requirement). Writing our own cards keeps the element type
-    traceable to the project's stated C3D10 convention (docs/CLAUDE.md,
+    traceable to the project's stated C3D10 convention (docs/SOUNDBOARD-LAB-DOC.md,
     "known traps") rather than a library default.
 
     Node order: meshio's gmsh reader applies a documented permutation
@@ -226,7 +226,7 @@ def write_frequency_inp_orthotropic(
 
     `validate_material` is called unconditionally before any card is
     written -- for an orthotropic material, a non-positive-definite
-    stiffness tensor is known (docs/CLAUDE.md "known traps") to
+    stiffness tensor is known (docs/SOUNDBOARD-LAB-DOC.md "known traps") to
     produce chaotic, increasingly-wrong high-mode eigenfrequencies
     rather than a clean solver error, so this must fail loudly here,
     before ever reaching ccx.

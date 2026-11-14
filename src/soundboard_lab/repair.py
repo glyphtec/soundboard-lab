@@ -1,6 +1,6 @@
 """Mesh repair for Blender-authored surface geometry, upstream of gmsh.
 
-Pure Python, no `bpy` imports (see docs/CLAUDE.md, "Engine/UI boundary").
+Pure Python, no `bpy` imports (see docs/SOUNDBOARD-LAB-DOC.md, "Engine/UI boundary").
 
 gmsh's STL-remeshing workflow (mesh.py's `mesh_surface`) assumes a
 closed, consistent, manifold input surface. Invalid topology (holes,
@@ -8,7 +8,7 @@ non-manifold edges, degenerate/duplicate faces, disconnected debris)
 produces confusing, hard-to-diagnose "gmsh artifacts" that are
 actually symptoms of unrepaired upstream geometry, not a gmsh bug --
 this is why mesh repair is its own pipeline stage, named ahead of
-meshing in docs/CLAUDE.md's Stack decision, not something gmsh itself
+meshing in docs/SOUNDBOARD-LAB-DOC.md's Stack decision, not something gmsh itself
 is expected to compensate for.
 
 Uses `pymeshfix` (a Python wrapper around Marco Attene's MeshFix

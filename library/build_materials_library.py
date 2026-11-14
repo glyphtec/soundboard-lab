@@ -3,7 +3,7 @@
 
 Builds a small starter materials library: named Material ID-blocks with
 real Soundboard Lab physical-property fields set, saved as their own
-.blend file. This is the actual mechanism docs/CLAUDE.md's "Material
+.blend file. This is the actual mechanism docs/SOUNDBOARD-LAB-DOC.md's "Material
 library" decision describes for reuse across projects -- a user's own
 materials_library.blend, pulled into any project via Blender's native
 File > Append (or Link), optionally cataloged in the Asset Browser.

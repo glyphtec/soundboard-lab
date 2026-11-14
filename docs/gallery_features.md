@@ -1,6 +1,6 @@
 # Soundboard Lab Gallery — feature list
 
-Status: **planned, nothing built yet.** The data side exists: Results & Verification > Export Results writes self-describing experiment folders (normative format spec: `docs/experiment_format.md`; writer: `src/soundboard_lab/experiment.py`; summary in `docs/CLAUDE.md` "Experiment export"). The gallery is a separate app that reads those folders; it never needs Blender.
+Status: **planned, nothing built yet.** The data side exists: Results & Verification > Export Results writes self-describing experiment folders (normative format spec: `docs/experiment_format.md`; writer: `src/soundboard_lab/experiment.py`; summary in `docs/SOUNDBOARD-LAB-DOC.md` "Experiment export"). The gallery is a separate app that reads those folders; it never needs Blender.
 
 ## Architecture (agreed direction)
 

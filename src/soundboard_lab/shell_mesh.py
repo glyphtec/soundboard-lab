@@ -2,13 +2,13 @@
 advance are thin/flat (role=Soundboard) -- stacks N layers between a
 bottom and top reference surface sharing the same in-plane footprint,
 instead of asking generic 3D Delaunay tetrahedralization to resolve a
-thin gap (see docs/CLAUDE.md "known traps": that approach forces a
+thin gap (see docs/SOUNDBOARD-LAB-DOC.md "known traps": that approach forces a
 uniform element size small enough for the thin dimension everywhere,
 blowing up element count across the whole in-plane area -- measured
 empirically at 1.36M elements for a simple 300x400x2mm plate at the
 minimum viable 2-layer resolution).
 
-Pure Python, no `bpy` imports (see docs/CLAUDE.md, "Engine/UI boundary").
+Pure Python, no `bpy` imports (see docs/SOUNDBOARD-LAB-DOC.md, "Engine/UI boundary").
 """
 
 from __future__ import annotations
@@ -33,7 +33,7 @@ from soundboard_lab.mesh import _frequency_step_cards
 class ShellMesh:
     """A 2D in-plane triangulated footprint, shared by a bottom and
     top reference surface (as per-vertex Z offsets, allowing a
-    non-uniform/CNC-contoured thickness later -- see docs/CLAUDE.md
+    non-uniform/CNC-contoured thickness later -- see docs/SOUNDBOARD-LAB-DOC.md
     Scope, "curved orthotropic material orientation" sibling idea).
     """
 
@@ -81,7 +81,7 @@ def _reject_wrong_level_faces(
         print(
             f"Soundboard Lab: rejected {n_rejected} face(s) whose normal direction matched "
             "top/bottom but whose Z position didn't -- likely a reversed-winding duplicate "
-            "defect (see docs/CLAUDE.md soundhole/fan-triangulation trap)"
+            "defect (see docs/SOUNDBOARD-LAB-DOC.md soundhole/fan-triangulation trap)"
         )
     return kept_top, kept_bottom
 
@@ -94,7 +94,7 @@ def shell_from_closed_mesh(mesh_path: Path, element_size: float, normal_threshol
 
     Assumes the object's thin/thickness axis is world Z. This matches
     the Z=tangential material-axis convention already adopted
-    elsewhere (docs/CLAUDE.md "Meshing and numerics"): tangential
+    elsewhere (docs/SOUNDBOARD-LAB-DOC.md "Meshing and numerics"): tangential
     growth-ring direction is typically through-thickness for a
     quartersawn soundboard, so "thin axis is Z" isn't a new
     assumption, it's the same one made explicit here.
@@ -108,7 +108,7 @@ def shell_from_closed_mesh(mesh_path: Path, element_size: float, normal_threshol
     WALL structure (the edges between its "upper" and "lower" vertices
     at each quad/strip), NOT by looking for boundary edges in the top
     surface's own interior triangulation. This matters a lot in
-    practice: verified empirically (see docs/CLAUDE.md) that a
+    practice: verified empirically (see docs/SOUNDBOARD-LAB-DOC.md) that a
     realistic Blender workflow -- draw the outline, boolean-cut a
     soundhole, let Blender's n-gon fill triangulate the resulting cap
     faces -- can produce a degenerate single-vertex "fan" triangulation
@@ -253,7 +253,7 @@ def _loops_from_edges(edges: list[tuple[int, int]]) -> list[list[int]]:
     well-formed mesh, and true by construction for the side-wall "rim"
     edges `shell_from_closed_mesh` builds (see its docstring for why
     that's the more robust source for real, possibly messy, meshes).
-    Prints a non-fatal warning (not a fix -- see docs/CLAUDE.md
+    Prints a non-fatal warning (not a fix -- see docs/SOUNDBOARD-LAB-DOC.md
     soundhole/fan-triangulation trap for why a junction can't be
     reliably untangled by clever walking alone) if a vertex has more
     or fewer than 2 incident edges, since the resulting loops may then
@@ -269,7 +269,7 @@ def _loops_from_edges(edges: list[tuple[int, int]]) -> list[list[int]]:
         print(
             f"Soundboard Lab: {len(bad_degree)} vertex/vertices have != 2 boundary-edge "
             "neighbors (not a clean set of simple loops) -- results below may be unreliable; "
-            "see docs/CLAUDE.md soundhole/fan-triangulation trap"
+            "see docs/SOUNDBOARD-LAB-DOC.md soundhole/fan-triangulation trap"
         )
 
     loops: list[list[int]] = []
@@ -648,7 +648,7 @@ def write_shell_frequency_inp(
     rotation) by default; the addon resolves a per-object grain
     rotation into this pair of vectors before calling in, since grain
     orientation is an object-level property, independent of the
-    Material ID-block (see docs/CLAUDE.md "Material library"/"Grain
+    Material ID-block (see docs/SOUNDBOARD-LAB-DOC.md "Material library"/"Grain
     orientation"). Ignored for an isotropic material (see above).
     """
     validate_material(material)

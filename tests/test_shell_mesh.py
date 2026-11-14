@@ -89,7 +89,7 @@ def _grid_plate_with_hole(dx: float, dy: float, cell: float, hole_lo: float, hol
     """A rectangular grid-triangulated plate with a square hole carved
     out of the middle -- a crude "soundhole" stand-in, used to prove
     boundary-loop detection correctly tells the true outer edge apart
-    from an interior hole (see docs/CLAUDE.md "known traps": both are
+    from an interior hole (see docs/SOUNDBOARD-LAB-DOC.md "known traps": both are
     topologically indistinguishable boundary loops by the
     one-triangle-per-edge rule alone -- area is the distinguisher).
     """
@@ -275,7 +275,7 @@ def test_shell_fixed_edge_eigenfrequencies_are_higher_than_free_free(ccx_path, t
 
 def test_shell_placeholder_spruce_eigenfrequencies(ccx_path, tmp_path):
     """End-to-end: a realistic soundboard-scale plate (300x400x2mm,
-    matching docs/CLAUDE.md's stated ~2mm thickness), meshed as a
+    matching docs/SOUNDBOARD-LAB-DOC.md's stated ~2mm thickness), meshed as a
     3-layer C3D15 extrusion instead of uniform-size tets. Confirmed
     separately (see session history) that the equivalent uniform-tet
     2-layer mesh needs 1,359,056 elements; this approach needs 780 --

@@ -1,6 +1,6 @@
 # Soundboard Lab
 
-Blender add-on for luthier soundboard eigenmode experiments. See [docs/CLAUDE.md](docs/CLAUDE.md) for the full project context and decisions.
+Blender add-on for luthier soundboard eigenmode experiments. See [docs/SOUNDBOARD-LAB-DOC.md](docs/SOUNDBOARD-LAB-DOC.md) for the full project context and decisions.
 
 Repository: <https://github.com/glyphtec/soundboard-lab>
 ## Engine dev setup

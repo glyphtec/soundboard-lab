@@ -154,7 +154,7 @@ def approx(a, b, tol=1e-6):
 ortho_mat = bpy.data.materials.new("Test Orthotropic")
 ortho_mat.soundboard_lab.kind = 'ORTHOTROPIC'
 # Defaults should be SPRUCE_PLACEHOLDER's own constants, an editable
-# starting point (not meaningless zeros) -- see docs/CLAUDE.md.
+# starting point (not meaningless zeros) -- see docs/SOUNDBOARD-LAB-DOC.md.
 assert ortho_mat.soundboard_lab.density == 460.0  # exact integer, representable in float32
 assert ortho_mat.soundboard_lab.e_longitudinal == 13800.0
 ortho_dict = addon.extract_material(ortho_mat)

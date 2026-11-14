@@ -1,6 +1,6 @@
 """CLI entry point for running an analysis from outside the engine's
 own Python process -- this is what the Blender addon invokes as a
-subprocess (per docs/CLAUDE.md's engine/UI boundary rule: the engine
+subprocess (per docs/SOUNDBOARD-LAB-DOC.md's engine/UI boundary rule: the engine
 has zero `bpy` imports, and gmsh/meshio can't be installed into
 Blender's bundled Python, so the addon launches this venv's own
 Python running this module rather than importing the engine in-process).
@@ -133,7 +133,7 @@ class StepTracker:
 
 
 def check_through_thickness_layers(element_size: float, thickness_hint: float) -> None:
-    """Reactive sanity check for the "known trap" (docs/CLAUDE.md:
+    """Reactive sanity check for the "known trap" (docs/SOUNDBOARD-LAB-DOC.md:
     enforce >=2-3 element layers through thickness, not one global
     size) -- this does not yet implement a proper spatially-varying
     gmsh size field (deferred, bigger piece of work); it just refuses

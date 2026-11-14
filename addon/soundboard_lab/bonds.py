@@ -8,7 +8,7 @@ Python. `start_bond_detection` / `apply_bond_result` /
 `check_bond_staleness` are plain functions so a --background smoke
 test can drive the whole cycle without timers, handlers or a viewport.
 
-Design (docs/CLAUDE.md "Generated collections & bonding proxies"):
+Design (docs/SOUNDBOARD-LAB-DOC.md "Generated collections & bonding proxies"):
 - Proxies are ordinary mesh objects, tagged add-on-owned, at identity
   transform with world-space vertices -- never displaced, never solve
   inputs. A refresh replaces only tagged proxies.

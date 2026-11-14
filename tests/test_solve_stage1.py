@@ -1,4 +1,4 @@
-"""Stage 1 of the validation ladder (docs/CLAUDE.md): a hand-built,
+"""Stage 1 of the validation ladder (docs/SOUNDBOARD-LAB-DOC.md): a hand-built,
 already-meshed `.inp` -- no gmsh, no Blender -- run through the real
 ccx binary, parsing eigenfrequencies out of its `.dat` output.
 

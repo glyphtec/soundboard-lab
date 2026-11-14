@@ -2,7 +2,7 @@
 ** Hand-built, deliberately minimal: a single linear C3D8 hex element,
 ** free-free (no *BOUNDARY), isotropic steel-like material. Purpose is
 ** to validate the ccx invocation + .dat output parsing path only --
-** NOT meshing or element-order accuracy (see docs/CLAUDE.md "known
+** NOT meshing or element-order accuracy (see docs/SOUNDBOARD-LAB-DOC.md "known
 ** traps": the real pipeline uses gmsh-generated quadratic C3D10 tets,
 ** introduced at validation ladder Stage 2).
 **

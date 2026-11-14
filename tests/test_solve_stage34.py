@@ -1,4 +1,4 @@
-"""Stage 3 + 4 of the validation ladder (docs/CLAUDE.md): a Blender-
+"""Stage 3 + 4 of the validation ladder (docs/SOUNDBOARD-LAB-DOC.md): a Blender-
 authored surface mesh (not gmsh's own geometry primitives), remeshed
 into quadratic C3D10 tets, with an orthotropic spruce material
 instead of isotropic -- the combination the project actually exists
@@ -8,10 +8,10 @@ tests/data/soundboard_plate.stl is a simple flat rectangular plate
 (300x400x3mm, 12 triangles), generated once via a Blender background
 script and committed as a static fixture -- this test does not invoke
 Blender itself (the engine is developed and tested with pytest
-outside Blender, per docs/CLAUDE.md's engine/UI boundary rule).
+outside Blender, per docs/SOUNDBOARD-LAB-DOC.md's engine/UI boundary rule).
 
 The spruce constants below are an explicitly-labeled PLACEHOLDER, not
-the project owner's lab-measured values (see docs/CLAUDE.md: "Material
+the project owner's lab-measured values (see docs/SOUNDBOARD-LAB-DOC.md: "Material
 constants come from her lab-measured library, never hardcoded
 defaults"). They combine two sources: density/E_L/E_R/G_LR/nu_LR from
 real measurements on actual spruce guitar soundboards (Giro et al.,
@@ -66,7 +66,7 @@ def test_stage34_blender_plate_orthotropic_spruce(ccx_path, tmp_path):
     # pattern this whole pipeline is explicitly guarding against), and
     # in a physically sensible range for a soundboard-sized spruce
     # plate (same order of magnitude as her real measured targets,
-    # ~100-200 Hz, per docs/CLAUDE.md's Evergreen section).
+    # ~100-200 Hz, per docs/SOUNDBOARD-LAB-DOC.md's Evergreen section).
     real_modes = frequencies[6:]
     assert all(10 < f < 1000 for f in real_modes), real_modes
     assert real_modes == sorted(real_modes), "eigenfrequencies should be strictly increasing"

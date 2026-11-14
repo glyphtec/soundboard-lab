@@ -1,7 +1,7 @@
 """Multi-body bonding: contact-footprint detection between
-independently-meshed bodies (see docs/CLAUDE.md "Boundary & Bonds UI").
+independently-meshed bodies (see docs/SOUNDBOARD-LAB-DOC.md "Boundary & Bonds UI").
 
-Pure Python, no `bpy` imports (see docs/CLAUDE.md, "Engine/UI boundary").
+Pure Python, no `bpy` imports (see docs/SOUNDBOARD-LAB-DOC.md, "Engine/UI boundary").
 
 Scope (decided with the user): role-scoped to the Soundboard only --
 every non-Soundboard body (Rib, Bridge Plate, eventually Lining) is

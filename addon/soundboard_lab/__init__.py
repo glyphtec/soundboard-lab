@@ -2,7 +2,7 @@
 
 This module is currently a smoke test of the extension hooks the add-on
 will use: N-panel tab + sub-panels and Object property storage. No
-solver logic lives here (see docs/CLAUDE.md for the engine/UI boundary rule).
+solver logic lives here (see docs/SOUNDBOARD-LAB-DOC.md for the engine/UI boundary rule).
 """
 
 import math
@@ -14,7 +14,7 @@ from mathutils import Matrix, Vector
 from . import analysis, bonds, exporting, generated
 
 # Roles whose material may be orthotropic and therefore carries a grain axis
-# (see docs/CLAUDE.md, "Material library"). Bridge plate / mass load / lining
+# (see docs/SOUNDBOARD-LAB-DOC.md, "Material library"). Bridge plate / mass load / lining
 # are isotropic by default and get no grain-orientation UI.
 ORTHOTROPIC_CAPABLE_ROLES = {'SOUNDBOARD', 'RIB'}
 
@@ -102,7 +102,7 @@ class SoundboardLabObjectSettings(bpy.types.PropertyGroup):
         description=(
             "Target gmsh element size (mesh units, e.g. mm). Does not yet "
             "implement a spatially-varying thickness-aware sizing field "
-            "(docs/CLAUDE.md known traps) -- pair with Thickness Hint below "
+            "(docs/SOUNDBOARD-LAB-DOC.md known traps) -- pair with Thickness Hint below "
             "to at least fail loudly if this is too coarse for the body's "
             "thickness, rather than silently producing an over-stiff mesh"
         ),
@@ -165,7 +165,7 @@ class SoundboardLabMaterialSettings(bpy.types.PropertyGroup):
     """Physical-material properties, attached to bpy.types.Material.
 
     Isotropic/orthotropic are distinct kinds (not one type with a
-    switch, see docs/CLAUDE.md "Material library") -- each carries its
+    switch, see docs/SOUNDBOARD-LAB-DOC.md "Material library") -- each carries its
     own field set below, gated in the UI by `kind`. `density` is
     shared (same physical meaning regardless of kind).
 
@@ -346,7 +346,7 @@ class SOUNDBOARD_OT_align_grain_to_edge(bpy.types.Operator):
 # ---------------------------------------------------------------------------
 
 # Dial colors match the axis convention: X=radial, Y=longitudinal/grain,
-# Z=tangential (docs/CLAUDE.md).
+# Z=tangential (docs/SOUNDBOARD-LAB-DOC.md).
 GRAIN_AXIS_DIAL_COLORS = (
     (0.9, 0.15, 0.15),
     (0.15, 0.75, 0.2),
@@ -580,8 +580,7 @@ def _draw_generated_notice(layout, obj: bpy.types.Object) -> bool:
 
 def _draw_material_fields(layout, mat: bpy.types.Material) -> None:
     """Shared by the N-panel's Bodies & Roles sub-panel and the
-    Properties editor's Material tab (see docs/CLAUDE.md "Material
-    library": the N-panel is the primary editing surface, the
+    Properties editor's Material tab     (see docs/SOUNDBOARD-LAB-DOC.md "Material    library": the N-panel is the primary editing surface, the
     Material tab an optional deeper mirror -- same fields, not two
     different schemas to keep in sync by hand).
     """
@@ -619,7 +618,7 @@ def _draw_material_fields(layout, mat: bpy.types.Material) -> None:
 
 class SOUNDBOARD_PT_material(bpy.types.Panel):
     """Physical material properties, in the Properties editor's
-    Material tab (see docs/CLAUDE.md "Material library": a Material
+    Material tab (see docs/SOUNDBOARD-LAB-DOC.md "Material library": a Material
     ID-block's slot *is* its physical material assignment -- link/
     append across a materials_library.blend, Asset Browser cataloguing
     etc. all come from this being a normal Material ID-block, not a

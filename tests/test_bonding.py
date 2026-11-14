@@ -1,4 +1,4 @@
-"""Contact-footprint detection (docs/CLAUDE.md "Boundary & Bonds UI" --
+"""Contact-footprint detection (docs/SOUNDBOARD-LAB-DOC.md "Boundary & Bonds UI" --
 bonding design). Synthetic torture tests first (precise, known-correct
 geometry), then real-geometry verification on the actual bonding-
 exercise fixtures (soundboard + tapered ribs + bridge plate).

@@ -1,4 +1,4 @@
-"""Stage 2 of the validation ladder (docs/CLAUDE.md): the same simple
+"""Stage 2 of the validation ladder (docs/SOUNDBOARD-LAB-DOC.md): the same simple
 box as Stage 1, now meshed programmatically via gmsh (quadratic C3D10
 tets) and converted through meshio, instead of hand-typed.
 
@@ -14,7 +14,7 @@ modes followed by real, physically-sensible structural modes.
 Captured on one real run (gmsh 4.15.2, ccx 2.22, element_size=5.0,
 1108 tetra10 elements): modes 7-10 were 142095/142109/191243/191252
 Hz -- lower than Stage 1's crude single-linear-hex result
-(172038/172038/243291/243299 Hz), consistent with docs/CLAUDE.md's
+(172038/172038/243291/243299 Hz), consistent with docs/SOUNDBOARD-LAB-DOC.md's
 "known traps" note that linear elements run artificially stiff.
 """
 

@@ -2,7 +2,7 @@
 
 Soundboard Lab needs every body to be a clean, closed solid. These habits keep
 Boolean-built parts (waffle stiffeners, cut-out linings, pickup cavities) meshable.
-They come from real failures; see `docs/CLAUDE.md`, "Mesh repair traps".
+They come from real failures; see `docs/SOUNDBOARD-LAB-DOC.md`, "Mesh repair traps".
 
 ## 1. Make cutters overshoot, never coincide
 

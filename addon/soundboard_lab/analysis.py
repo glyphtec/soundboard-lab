@@ -2,7 +2,7 @@
 launch/poll cycle for running the engine's CLI (see src/soundboard_lab/
 cli.py) out-of-process.
 
-The engine/UI boundary rule (docs/CLAUDE.md) means this addon never
+The engine/UI boundary rule (docs/SOUNDBOARD-LAB-DOC.md) means this addon never
 imports the engine's gmsh/meshio-dependent code directly -- it launches
 the engine venv's own Python running `python -m soundboard_lab.cli` as
 a subprocess and polls for completion.
@@ -32,7 +32,7 @@ from mathutils import Vector
 
 # ---------------------------------------------------------------------------
 # Add-on preferences: ccx and engine-venv-python paths (never hardcoded,
-# never PATH-dependent -- see docs/CLAUDE.md Stack decision).
+# never PATH-dependent -- see docs/SOUNDBOARD-LAB-DOC.md Stack decision).
 # ---------------------------------------------------------------------------
 
 
@@ -743,7 +743,7 @@ def _jet_colormap(t: float) -> tuple[float, float, float]:
 def _set_viewport_vertex_color_shading():
     """Best-effort: switch any visible VIEW_3D area to Solid shading
     with vertex-color display, so the mode-shape heat map is visible
-    with zero material setup (same rationale as docs/CLAUDE.md's
+    with zero material setup (same rationale as docs/SOUNDBOARD-LAB-DOC.md's
     "Mesh preview & validation" decision for the mesh-quality heat
     map). Non-fatal, like `_tag_ui_redraw` -- a window-less context
     (e.g. this function called from a background script) must not
@@ -817,7 +817,7 @@ def build_mode_shape_preview(
 
     No display offset: the preview sits exactly on the solved top
     surface (generated objects never displace from true geometry --
-    docs/CLAUDE.md "Generated collections & bonding proxies"). The
+    docs/SOUNDBOARD-LAB-DOC.md "Generated collections & bonding proxies"). The
     coplanar Z-fighting with the authored Soundboard is handled by
     hiding that object while the preview shows (see
     `_set_soundboard_visibility`) and by collection visibility toggles.
@@ -1222,7 +1222,7 @@ def _on_mode_view_update(self, context):
 
 def _compute_grain_orientation(obj: bpy.types.Object) -> tuple[float, float, float, float, float, float]:
     """Resolve `obj.soundboard_lab.grain_rotation` (a per-object Euler,
-    relative to the object's own LOCAL axes -- see docs/CLAUDE.md
+    relative to the object's own LOCAL axes -- see docs/SOUNDBOARD-LAB-DOC.md
     "Grain orientation") into the six raw `*ORIENTATION` numbers the
     engine's CLI `--orientation` flag expects: a world-space vector
     along the local 1-axis (radial), then a world-space vector in the

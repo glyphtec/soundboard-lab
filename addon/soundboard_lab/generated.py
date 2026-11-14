@@ -1,6 +1,6 @@
 """Add-on-owned generated collections and objects.
 
-Layout (see docs/CLAUDE.md "Generated collections & bonding proxies"):
+Layout (see docs/SOUNDBOARD-LAB-DOC.md "Generated collections & bonding proxies"):
 
     Soundboard Lab          (root)
     +-- Bonding Proxies     (bond-detection proxies)

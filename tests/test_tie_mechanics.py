@@ -1,4 +1,4 @@
-"""*TIE mechanics proof (bonding system design, see docs/CLAUDE.md
+"""*TIE mechanics proof (bonding system design, see docs/SOUNDBOARD-LAB-DOC.md
 "Boundary & Bonds UI"): before tackling real multi-body geometry, prove
 CalculiX's `*TIE` card actually reproduces a truly continuous
 structure's behavior when run through this project's own ccx

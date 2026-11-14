@@ -9,9 +9,9 @@ surface -- the faces counted in the reported contact area. Every node
 on those faces (corners and mid-side nodes) becomes the tie's slave
 set; the master is the Soundboard's top and bottom element faces, so
 bodies glued to either side are covered (V1: Soundboard is always
-master -- docs/CLAUDE.md "Boundary & Bonds UI").
+master -- docs/SOUNDBOARD-LAB-DOC.md "Boundary & Bonds UI").
 
-Pure Python, no `bpy` imports (see docs/CLAUDE.md, "Engine/UI boundary").
+Pure Python, no `bpy` imports (see docs/SOUNDBOARD-LAB-DOC.md, "Engine/UI boundary").
 """
 
 from __future__ import annotations
@@ -53,7 +53,7 @@ _WEDGE_TOP_FACE = "S2"
 
 @dataclass(frozen=True)
 class Terminal:
-    """Rim termination for a Body/Lining body (docs/CLAUDE.md "Rim
+    """Rim termination for a Body/Lining body (docs/SOUNDBOARD-LAB-DOC.md "Rim
     lining"), applied to the nodes of its outer wall -- where the sides
     would be glued -- minus any glue-face nodes. `fixed` clamps them,
     `free` adds nothing, `spring` grounds each node in x/y/z with
@@ -71,7 +71,7 @@ GRAMS_TO_TONNES = 1e-6
 @dataclass(frozen=True)
 class PointAttachment:
     """A grounded vertical spring and/or a lumped mass at one location
-    (docs/CLAUDE.md "Point attachments": compensator feet, bridge mass,
+    (docs/SOUNDBOARD-LAB-DOC.md "Point attachments": compensator feet, bridge mass,
     test masses). It acts on the nearest body surface -- the Soundboard
     or any bonded body -- spread equally over that surface's nodes
     within `radius` of the nearest surface point (`radius` 0 = the

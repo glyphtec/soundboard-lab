@@ -1,6 +1,6 @@
 """CalculiX (ccx) subprocess invocation and `.dat` result parsing.
 
-Pure Python, no `bpy` imports (see docs/CLAUDE.md, "Engine/UI boundary").
+Pure Python, no `bpy` imports (see docs/SOUNDBOARD-LAB-DOC.md, "Engine/UI boundary").
 This is the Stage 1 validation-ladder slice: invoke ccx on an already
 meshed `.inp` and parse its eigenfrequency table. No mesh generation
 lives here.
@@ -52,7 +52,7 @@ def run_ccx(job_path: Path, ccx_exe: Path, timeout: float | None = None) -> None
     and its stem becomes the `-i` argument, so results land next to it.
 
     Always uses the explicit `ccx_exe` path, never PATH lookup (Windows
-    hazard noted in docs/CLAUDE.md).
+    hazard noted in docs/SOUNDBOARD-LAB-DOC.md).
     """
     job_path = Path(job_path)
     ccx_exe = Path(ccx_exe)

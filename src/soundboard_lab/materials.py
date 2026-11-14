@@ -1,11 +1,11 @@
 """Orthotropic wood material constants and CalculiX card conversion.
 
-Pure Python, no `bpy` imports (see docs/CLAUDE.md, "Engine/UI boundary").
+Pure Python, no `bpy` imports (see docs/SOUNDBOARD-LAB-DOC.md, "Engine/UI boundary").
 
 Material constants are entered in the wood-science L/R/T convention
 (as published literature reports them), then converted to CalculiX's
 1/2/3 index convention and validated for physical stability before any
-card gets written -- see docs/CLAUDE.md "known traps": a
+card gets written -- see docs/SOUNDBOARD-LAB-DOC.md "known traps": a
 non-positive-definite orthotropic stiffness tensor (e.g. from small or
 inconsistent Poisson ratios) has caused chaotic, increasingly-wrong
 high-mode eigenfrequencies in prior work with other FEA tools.
@@ -22,7 +22,7 @@ import numpy as np
 class IsotropicMaterial:
     """Isotropic material: single modulus/Poisson ratio, no grain axis
     (bridge plate, mass loads, generic isotropic bodies -- see
-    docs/CLAUDE.md "Material library": isotropic and orthotropic are
+    docs/SOUNDBOARD-LAB-DOC.md "Material library": isotropic and orthotropic are
     distinct kinds with their own field sets, not one shared schema).
     """
 
@@ -60,7 +60,7 @@ class OrthotropicWoodMaterial:
 
 # Union of the two physical-material kinds the engine understands. Kept
 # as a plain type alias (not a common base class) -- the two kinds
-# deliberately share no fields (see docs/CLAUDE.md "Material library":
+# deliberately share no fields (see docs/SOUNDBOARD-LAB-DOC.md "Material library":
 # isotropic and orthotropic are distinct kinds, not one shared schema),
 # so callers dispatch on `isinstance` rather than relying on shared
 # attributes.
@@ -73,7 +73,7 @@ def to_calculix_engineering_constants(
     """Convert to CalculiX's `*ELASTIC, TYPE=ENGINEERING CONSTANTS` order:
     `(E1, E2, E3, nu12, nu13, nu23, G12, G13, G23)`.
 
-    CalculiX's local directions 1, 2, 3 are, per docs/CLAUDE.md's
+    CalculiX's local directions 1, 2, 3 are, per docs/SOUNDBOARD-LAB-DOC.md's
     established convention, X=radial, Y=longitudinal, Z=tangential.
     CalculiX defines `nu_ij` as the strain response in direction j to a
     unit stress in direction i -- the loaded direction is always
@@ -180,7 +180,7 @@ def validate_material(m: Material) -> None:
 
 def material_to_dict(m: Material) -> dict:
     """Plain-dict form for JSON transport across the engine/UI
-    subprocess boundary (see docs/CLAUDE.md "Engine/UI boundary" --
+    subprocess boundary (see docs/SOUNDBOARD-LAB-DOC.md "Engine/UI boundary" --
     the addon never imports these dataclasses directly, it writes a
     JSON file the engine's own CLI reads back via `material_from_dict`).
     """
@@ -228,7 +228,7 @@ def material_from_dict(d: dict) -> Material:
 
 
 # Placeholder spruce constants, NOT the project owner's lab-measured
-# values (see module docstring and docs/CLAUDE.md: "Material constants
+# values (see module docstring and docs/SOUNDBOARD-LAB-DOC.md: "Material constants
 # come from her lab-measured library, never hardcoded defaults").
 # Combines two sources: density/E_L/E_R/G_LR/nu_LR from real
 # measurements on actual spruce guitar soundboards (Giro et al.,

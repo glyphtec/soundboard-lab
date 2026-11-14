@@ -1,6 +1,6 @@
 # Materials Library
 
-`materials_library.blend` is a starter personal materials library for Soundboard Lab, per `docs/CLAUDE.md`'s "Material library" decision: physical material records live on native `bpy.types.Material` ID-blocks, so a `materials_library.blend` full of named Materials with their Soundboard Lab physical-property fields set is a real, reusable library across any project -- no custom add-on-side catalog needed.
+`materials_library.blend` is a starter personal materials library for Soundboard Lab, per `docs/SOUNDBOARD-LAB-DOC.md`'s "Material library" decision: physical material records live on native `bpy.types.Material` ID-blocks, so a `materials_library.blend` full of named Materials with their Soundboard Lab physical-property fields set is a real, reusable library across any project -- no custom add-on-side catalog needed.
 
 It currently contains these materials, all marked as **assets** and filed under catalogs (defined in `blender_assets.cats.txt`):
 
