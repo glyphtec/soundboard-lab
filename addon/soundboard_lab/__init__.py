@@ -580,7 +580,8 @@ def _draw_generated_notice(layout, obj: bpy.types.Object) -> bool:
 
 def _draw_material_fields(layout, mat: bpy.types.Material) -> None:
     """Shared by the N-panel's Bodies & Roles sub-panel and the
-    Properties editor's Material tab     (see docs/SOUNDBOARD-LAB-DOC.md "Material    library": the N-panel is the primary editing surface, the
+    Properties editor's Material tab (see docs/SOUNDBOARD-LAB-DOC.md "Material
+    library": the N-panel is the primary editing surface, the
     Material tab an optional deeper mirror -- same fields, not two
     different schemas to keep in sync by hand).
     """
