@@ -265,3 +265,31 @@ ISOTROPIC_PLACEHOLDER = IsotropicMaterial(
     nu=0.3,
 )
 
+# Isotropic stand-ins for a 4.0 mm spruce web with a 0.5 mm carbon cap,
+# modeled as a plain 4.0 mm body (the cap is not meshed). Estimates, not
+# measured. E matches the bending stiffness (neutral axis shifted toward
+# the cap) of the 4.5 mm laminate along the grain; density matches its
+# mass per unit area over 4.0 mm. Inputs: spruce E_L 13800 MPa / 460
+# kg/m^3 (SPRUCE_PLACEHOLDER), carbon E_L 90/120/150 GPa at 1500 kg/m^3.
+# Isotropy applies the along-grain stiffness in every direction, so
+# any web running across the grain is overstated; valid for comparing
+# strategies only when the ribbon follows each web.
+SPRUCE_CARBON_CAP_ISO_LOW = IsotropicMaterial(
+    name="SpruceCarbonCapIsoLow",
+    density=6.5e-10,  # 650 kg/m^3 in t/mm^3
+    e=37500.0,  # MPa, carbon E_L = 90 GPa
+    nu=0.3,
+)
+SPRUCE_CARBON_CAP_ISO_MID = IsotropicMaterial(
+    name="SpruceCarbonCapIsoMid",
+    density=6.5e-10,
+    e=41300.0,  # carbon E_L = 120 GPa
+    nu=0.3,
+)
+SPRUCE_CARBON_CAP_ISO_HIGH = IsotropicMaterial(
+    name="SpruceCarbonCapIsoHigh",
+    density=6.5e-10,
+    e=44300.0,  # carbon E_L = 150 GPa
+    nu=0.3,
+)
+
